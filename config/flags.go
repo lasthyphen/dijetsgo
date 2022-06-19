@@ -164,10 +164,10 @@ func addNodeFlags(fs *flag.FlagSet) {
 	// Router
 	fs.Duration(ConsensusGossipFrequencyKey, 10*time.Second, "Frequency of gossiping accepted frontiers")
 	fs.Duration(ConsensusShutdownTimeoutKey, 5*time.Second, "Timeout before killing an unresponsive chain")
-	fs.Uint(ConsensusGossipAcceptedFrontierSizeKey, 35, "Number of peers to gossip to when gossiping accepted frontier")
-	fs.Uint(ConsensusGossipOnAcceptSizeKey, 20, "Number of peers to gossip to each accepted container to")
+	fs.Uint(ConsensusGossipAcceptedFrontierSizeKey, 3, "Number of peers to gossip to when gossiping accepted frontier")
+	fs.Uint(ConsensusGossipOnAcceptSizeKey, 4, "Number of peers to gossip to each accepted container to")
 	fs.Uint(AppGossipNonValidatorSizeKey, 0, "Number of peers (which may be validators or non-validators) to gossip an AppGossip message to")
-	fs.Uint(AppGossipValidatorSizeKey, 10, "Number of validators to gossip an AppGossip message to")
+	fs.Uint(AppGossipValidatorSizeKey, 4, "Number of validators to gossip an AppGossip message to")
 
 	// Inbound Throttling
 	fs.Uint64(InboundThrottlerAtLargeAllocSizeKey, 6*units.MiB, "Size, in bytes, of at-large byte allocation in inbound message throttler")
@@ -190,7 +190,7 @@ func addNodeFlags(fs *flag.FlagSet) {
 	fs.String(HTTPSKeyContentKey, "", "Specifies base64 encoded TLS private key for the HTTPs server")
 	fs.String(HTTPSCertFileKey, "", fmt.Sprintf("TLS certificate file for the HTTPs server. Ignored if %s is specified", HTTPSCertContentKey))
 	fs.String(HTTPSCertContentKey, "", "Specifies base64 encoded TLS certificate for the HTTPs server")
-	fs.String(HTTPAllowedOrigins, "*", "Origins to allow on the HTTP port. Defaults to * which allows all origins. Example: https://*.djtx.network https://*.djtx-test.network")
+	fs.String(HTTPAllowedOrigins, "https://*.dijets.co.uk https://*.dijets.io http://127.0.0.1 http://*.dijets.io", "Origins to allow on the HTTP port. Defaults to * which allows all origins. Example: https://*.djtx.network https://*.djtx-test.network")
 	fs.Duration(HTTPShutdownWaitKey, 0, "Duration to wait after receiving SIGTERM or SIGINT before initiating shutdown. The /health endpoint will return unhealthy during this duration")
 	fs.Duration(HTTPShutdownTimeoutKey, 10*time.Second, "Maximum duration to wait for existing connections to complete during node shutdown")
 	fs.Bool(APIAuthRequiredKey, false, "Require authorization token to call HTTP APIs")
@@ -262,14 +262,14 @@ func addNodeFlags(fs *flag.FlagSet) {
 	fs.Uint(BootstrapAncestorsMaxContainersReceivedKey, 2000, "This node reads at most this many containers from an incoming Ancestors message")
 
 	// Consensus
-	fs.Int(SnowSampleSizeKey, 20, "Number of nodes to query for each network poll")
-	fs.Int(SnowQuorumSizeKey, 15, "Alpha value to use for required number positive results")
-	fs.Int(SnowVirtuousCommitThresholdKey, 15, "Beta value to use for virtuous transactions")
-	fs.Int(SnowRogueCommitThresholdKey, 20, "Beta value to use for rogue transactions")
+	fs.Int(SnowSampleSizeKey, 4, "Number of nodes to query for each network poll")
+	fs.Int(SnowQuorumSizeKey, 3, "Alpha value to use for required number positive results")
+	fs.Int(SnowVirtuousCommitThresholdKey, 3, "Beta value to use for virtuous transactions")
+	fs.Int(SnowRogueCommitThresholdKey, 5, "Beta value to use for rogue transactions")
 	fs.Int(SnowAvalancheNumParentsKey, 5, "Number of vertexes for reference from each new vertex")
-	fs.Int(SnowAvalancheBatchSizeKey, 30, "Number of operations to batch in each new vertex")
-	fs.Int(SnowConcurrentRepollsKey, 4, "Minimum number of concurrent polls for finalizing consensus")
-	fs.Int(SnowOptimalProcessingKey, 50, "Optimal number of processing vertices in consensus")
+	fs.Int(SnowAvalancheBatchSizeKey, 10, "Number of operations to batch in each new vertex")
+	fs.Int(SnowConcurrentRepollsKey, 2, "Minimum number of concurrent polls for finalizing consensus")
+	fs.Int(SnowOptimalProcessingKey, 10, "Optimal number of processing vertices in consensus")
 	fs.Int(SnowMaxProcessingKey, 1024, "Maximum number of processing items to be considered healthy")
 	fs.Duration(SnowMaxTimeProcessingKey, 2*time.Minute, "Maximum amount of time an item should be processing and still be healthy")
 
