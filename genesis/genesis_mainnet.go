@@ -57,8 +57,14 @@ var (
 						"locktime": 1646352000
 					}
 				]
-			},
-		]
+			}
+		],
+		"startTime": 1599696000,
+		"initialStakeDuration": 31536000,
+		"initialStakeDurationOffset": 54000,
+		"initialStakedFunds": [
+			"X-dijets1uxkc262hvgsvstguvawwaanmsh8zvtcsd64l5e"
+		],
 		"initialStakers": [
 			{
 				"nodeID": "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg",
