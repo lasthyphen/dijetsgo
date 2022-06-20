@@ -7,4 +7,4 @@
 
 # Set up the versions to be used
 # Don't export them as their used in the context of other calls
-dijeth_version=${DIJETH_VERSION:-'v1.4.1'}
+dijeth_version=${DIJETH_VERSION:-'v1.4.0'}
