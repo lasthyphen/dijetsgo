@@ -262,7 +262,7 @@ func FromConfig(config *Config) ([]byte, ids.ID, error) {
 	}
 	{
 		djtx := avm.AssetDefinition{
-			Name:         "Avalanche",
+			Name:         "Dijets",
 			Symbol:       "DJTX",
 			Denomination: 9,
 			InitialState: map[string][]interface{}{},
