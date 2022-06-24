@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	MainnetAPIURI = "https://api.djtx.network"
+	MainnetAPIURI = "http://archiver.switzerlandnorth.cloudapp.azure.com:9650"
 	FujiAPIURI    = "https://api.djtx-test.network"
 	LocalAPIURI   = "http://localhost:9650"
 
